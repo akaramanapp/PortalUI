@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+          <form >
+          <h1>Kullanıcı Düzenle</h1>
+          <div class="input-group mb-3">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input #Firstname="ngModel" name="Firstname" [(ngModel)]="userModel.Firstname" 
+            minlength="3" type="text" class="form-control" placeholder="Username"
+            [ngClass]="Firstname.valid || Firstname.pristine ? 'form-control': 'form-control is-invalid'" ngModel required>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input #Lastname="ngModel" name="Lastname"  [(ngModel)]="userModel.Lastname" minlength="3"
+            [ngClass]="Lastname.valid || Lastname.pristine ? 'form-control': 'form-control is-invalid'" 
+            type="text" class="form-control" placeholder="Lastname" ngModel required>
+          </div>
+
+          <div class="input-group mb-3">
+              <span class="input-group-addon">@</span>
+              <input #Email="ngModel" name="Email"  [(ngModel)]="userModel.Email" minlength="3"
+              [ngClass]="Email.valid || Email.pristine ? 'form-control': 'form-control is-invalid'"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
+              type="text" class="form-control" placeholder="Email" ngModel required>
+            </div>
+
+          
+
+          <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-phone"></i></span>
+              <input #Phonenumber="ngModel" name="Phonenumber"  [(ngModel)]="userModel.Phonenumber"
+              [ngClass]="Phonenumber.valid || Phonenumber.pristine ? 'form-control': 'form-control is-invalid'" 
+              type="number" class="form-control" placeholder="Phone Number" ngModel required>
+            </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-addon"><i class="icon-lock"></i></span>
+            <input #Password="ngModel" name="Password"  [(ngModel)]="userModel.Password" minlength="6"
+            [ngClass]="Password.valid || Password.pristine ? 'form-control': 'form-control is-invalid'"  
+            type="password" class="form-control" placeholder="Password" ngModel required>
+          </div>
+
+          <button type="submit" [disabled]="!form.valid"  class="btn btn-block btn-success" (click)="UpdateUser()">Update</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
